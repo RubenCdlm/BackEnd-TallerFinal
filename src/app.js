@@ -6,7 +6,7 @@ const app = express()
 
 
 app.get('/', async (req, res) => {
-    const [rows] = await pool.query('SELECT * FROM Compra')
+    const [rows] = await pool.query('SELECT * FROM Cliente')
     res.json(rows)
   })
 
