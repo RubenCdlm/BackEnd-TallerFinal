@@ -32,6 +32,12 @@ app.get('/', async (req, res) => {
     res.json(rows)
   })
 
+  app.post('/', async (req, res) => {
+    const id = req.params
+    const [rows] = await pool.query('SELECT * FROM Productos')
+    res.json(rows)
+  })
+
   app.listen(PORT)
   console.log('Server on port', PORT)
 
