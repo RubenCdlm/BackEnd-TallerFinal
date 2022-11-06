@@ -21,10 +21,11 @@ app.get('/', async (req, res) => {
   })
   app.get('/Productos/:Id_Producto', async (req, res) => {
     const id = req.params
+    const rows = [];
     if(id == null){
-      const [rows] = await pool.query('SELECT * FROM Productos')
+      rows = await pool.query('SELECT * FROM Productos')
     }else{
-      const [rows] = await pool.query('SELECT * FROM Productos where ?',[id])
+      rows = await pool.query('SELECT * FROM Productos where ?',[id])
     }
     res.json(rows[0])
   })
