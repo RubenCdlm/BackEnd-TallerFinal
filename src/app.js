@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
   })
   app.get('/Productos/:id', async (req, res) => {
     const id = req.params
-    const [rows] = await pool.query('SELECT * FROM Productos where Id_Producto = ?',[id])
+    const [rows] = await pool.query('SELECT * FROM Productos where Id_Producto =',[id])
     res.json(rows)
   })
 
