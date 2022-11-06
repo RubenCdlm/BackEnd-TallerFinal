@@ -21,12 +21,7 @@ app.get('/', async (req, res) => {
   })
   app.get('/Productos/:Id_Producto', async (req, res) => {
     const id = req.params
-    const rows = [];
-    if(id == null){
-      rows = await pool.query('SELECT * FROM Productos')
-    }else{
-      rows = await pool.query('SELECT * FROM Productos where ?',[id])
-    }
+    const [rows] = await pool.query('SELECT * FROM Productos where ?',[id])
     res.json(rows[0])
   })
   app.get('/InsertClient', async (req, res) => {
