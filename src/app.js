@@ -19,8 +19,7 @@ app.get('/', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM Cliente')
     res.json(rows)
   })
-  app.get('/Productos', async (req, res) => {
-    console.log(req);
+  app.get('/Productos/', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM Productos where Id_Producto = ?',[req])
     res.json(rows)
   })
