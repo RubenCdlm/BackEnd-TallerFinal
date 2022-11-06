@@ -32,8 +32,8 @@ app.get('/', async (req, res) => {
     res.json(rows)
   })
 
-  app.post('/insert', async (req, res) => {
-    console.log(req.params)
+  app.post('/Post', async (req, res) => {
+    console.log(req.body)
     // const {Nombre_Cliente,Apellido_Cliente,Fecha_Nacimiento,Identificaicon} = req.body;
     // const [rows] = await pool.query('Insert into Cliente set ?',[req.body])
     // res.json(rows)
