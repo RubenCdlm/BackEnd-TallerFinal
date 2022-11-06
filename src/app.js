@@ -2,7 +2,8 @@ import express from 'express'
 import { pool } from './db.js'
 import {PORT} from './config.js'
 
-const app = express()
+const app = express();
+app.use(express.json);
 
 
 app.get('/', async (req, res) => {
