@@ -25,11 +25,11 @@ app.get('/', async (req, res) => {
     console.log(id);
     if(id != ""){
       rows = await pool.query('SELECT * FROM Productos where ?',[id])
+      res.json(rows[0])
     }else{
       rows = await pool.query('SELECT * FROM Productos')
+      res.json(rows)
     }
-    
-    res.json(rows[0])
   })
   app.get('/InsertClient', async (req, res) => {
     const id = req.params
