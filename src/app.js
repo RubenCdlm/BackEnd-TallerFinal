@@ -20,8 +20,8 @@ app.get('/', async (req, res) => {
     res.json(rows)
   })
   app.get('/Productos', async (req, res) => {
-    const {id} = req;
-    const [rows] = await pool.query('SELECT * FROM Productos where Id_Producto = ?',[id],(err,Productos))
+    console.log(req);
+    const [rows] = await pool.query('SELECT * FROM Productos where Id_Producto = ?',[req])
     res.json(rows)
   })
 
