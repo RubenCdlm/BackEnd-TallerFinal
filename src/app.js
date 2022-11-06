@@ -22,10 +22,10 @@ app.get('/', async (req, res) => {
   app.get('/Productos/:Id_Producto', async (req, res) => {
     const id = req.params
     const rows = [];
-    if(id == ""){
+    if(id != ""){
       rows = await pool.query('SELECT * FROM Productos where ?',[id])
     }else{
-      console.log("Vacio");
+      rows = await pool.query('SELECT * FROM Productos')
     }
     
     res.json(rows[0])
