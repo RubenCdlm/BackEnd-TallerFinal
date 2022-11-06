@@ -19,6 +19,10 @@ app.get('/', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM Cliente')
     res.json(rows)
   })
+  app.get('/Productos', async (req, res) => {
+    const [rows] = await pool.query('SELECT * FROM Productos')
+    res.json(rows)
+  })
 
   app.listen(PORT)
   console.log('Server on port', PORT)
