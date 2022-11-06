@@ -3,8 +3,6 @@ import { pool } from './db.js'
 import {PORT} from './config.js'
 
 const app = express();
-app.use(express.json);
-
 
 app.get('/', async (req, res) => {
     const [rows] = await pool.query('SELECT "Bienvenidos" as RESULT')
@@ -32,7 +30,8 @@ app.get('/', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM Productos')
     res.json(rows)
   })
-
+  
+  app.use(express.json);
   app.post('/Post', async (req, res) => {
     console.log(req.body)
     // const {Nombre_Cliente,Apellido_Cliente,Fecha_Nacimiento,Identificaicon} = req.body;
