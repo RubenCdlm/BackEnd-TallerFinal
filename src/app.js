@@ -32,9 +32,9 @@ app.get('/', async (req, res) => {
     res.json(rows)
   })
 
-  app.post('/', async (req, res) => {
-    const id = req.params
-    const [rows] = await pool.query('SELECT * FROM Productos')
+  app.post('/insert', async (req, res) => {
+    const data = req.body;
+    const [rows] = await pool.query('Insert into Clientes set ?',[data])
     res.json(rows)
   })
 
