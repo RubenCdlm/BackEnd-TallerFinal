@@ -33,7 +33,7 @@ app.get('/', async (req, res) => {
   })
 
  
-  app.get('/Post', async (req, res) => {
+  app.post('/Post', async (req, res) => {
     console.log(req.body)
     const data = req.body;
     const [rows] = await pool.query('Insert into Cliente set ?',[data])
