@@ -34,11 +34,10 @@ app.get('/', async (req, res) => {
 
  
   app.post('/Post', async (req, res) => {
-
     const {Nombre_Cliente,Apellido_Cliente,Fecha_Nacimiento,Identificacion} = req.body;
     console.log(Nombre_Cliente,Apellido_Cliente,Fecha_Nacimiento,Identificacion)
-    // const [rows] = await pool.query('Insert into Cliente select (Nombre_Cliente,Apellido_Cliente,Fecha_Nacimiento,Identificacion) ',Nombre_Cliente,Apellido_Cliente,Fecha_Nacimiento,Identificacion)
-    // res.json(rows)
+    const [rows] = await pool.query('Insert into Cliente select (Nombre_Cliente,Apellido_Cliente,Fecha_Nacimiento,Identificacion) ',Nombre_Cliente,Apellido_Cliente,Fecha_Nacimiento,Identificacion)
+    res.json(rows)
   })
 
   app.listen(PORT)
