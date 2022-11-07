@@ -38,7 +38,7 @@ app.get('/', async (req, res) => {
     const data1 = Object.values(data)
     let sql = `CALL Compra(?,?,?,?,?,?)`;
     const [rows] = await pool.query(sql,data1)
-    res.json(rows[0])
+    res.json(rows[0][0])
   })
 
   app.listen(PORT)
