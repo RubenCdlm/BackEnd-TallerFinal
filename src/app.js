@@ -24,7 +24,7 @@ app.get('/', async (req, res) => {
     console.log(id);
     let sql = `CALL Producto(?)`;
     const [rows] = await pool.query(sql,id);
-      res.json(rows[0])
+      res.json(rows[0][0])
   })
   app.get('/Productos', async (req, res) => {
     const id = req.params
