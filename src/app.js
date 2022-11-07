@@ -28,7 +28,7 @@ app.get('/', async (req, res) => {
   app.post('/Post', async (req, res) => {
     const data = req.body;
     let sql = `CALL Compra(?)`;
-    console.log(data)
+    console.log(data.Nombre_Cl)
     const [rows] = await pool.query(sql,data)
     res.json(rows)
   })
