@@ -9,19 +9,12 @@ app.get('/', async (req, res) => {
     const [rows] = await pool.query('SELECT "Bienvenidos" as RESULT')
     res.json(rows)
   })
-
-  app.get('/ping', async (req, res) => {
-    const [result] = await pool.query(`SELECT "Bienvenidos" as RESULT`);
-    res.json(result[0])
-  })
-
   app.get('/cliente', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM Cliente')
     res.json(rows)
   })
   app.get('/Productos/:Id_Producto', async (req, res) => {
     const id = req.params.Id_Producto
-    console.log(id);
     let sql = `CALL Producto(?)`;
     const [rows] = await pool.query(sql,id);
       res.json(rows[0][0])
@@ -32,11 +25,11 @@ app.get('/', async (req, res) => {
     res.json(rows)
   })
 
- 
   app.post('/Post', async (req, res) => {
     const data = req.body;
+    let sql = `CALL Compra(?)`;
     console.log(data)
-    const [rows] = await pool.query('Insert into Cliente set ?',data)
+    const [rows] = await pool.query(sql,data)
     res.json(rows)
   })
 
