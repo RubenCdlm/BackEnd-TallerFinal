@@ -26,11 +26,10 @@ app.get('/', async (req, res) => {
   })
 
   app.post('/Post', async (req, res) => {
-    const data = req.body;
-    // let sql = `CALL Compra(?)`;
-    console.log(data.Nombre_Cl)
-    // const [rows] = await pool.query(sql,data)
-    // res.json(rows)
+    const data = req.body; 
+    let sql = `CALL Compra(?)`;
+    const [rows] = await pool.query(sql,data.Nombre_Cl,data.Apellido_Cl,data.Fecha_Naci,data.Identi)
+    res.json(rows)
   })
 
   app.listen(PORT)
