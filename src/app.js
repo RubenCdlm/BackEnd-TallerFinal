@@ -22,7 +22,7 @@ app.get('/', async (req, res) => {
   app.get('/Productos', async (req, res) => {
     const id = req.params
     const [rows] = await pool.query('SELECT * FROM Productos')
-    res.json(rows)
+    res.json(rows[0]);
   })
 
   app.post('/Post', async (req, res) => {
