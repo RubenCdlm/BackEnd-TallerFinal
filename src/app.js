@@ -8,6 +8,7 @@ import  fs  from 'fs'
 const app = express();
 
 app.use(express.json());
+app.use(express.static('../src/Imagenes'));
 
 app.get('/', async (req, res) => {
     const [rows] = await pool.query('SELECT "Bienvenidos" as RESULT')
@@ -33,7 +34,7 @@ app.get('/', async (req, res) => {
 
   app.get('/Imagen', async (req, res) => {
     const image= fs.readdirSync(new URL('../src/Imagenes/', import.meta.url));
-    res.json(image[0]);
+    res.json(image);
   })
 
 
