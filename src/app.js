@@ -29,7 +29,8 @@ app.get('/', async (req, res) => {
     res.json(rows);
 
     const {pathname: image} = new URL('../src/Imagenes/', import.meta.url)
-    res.json(image);
+    // res.json(image);
+    console.log(new URL('../src/Imagenes/', import.meta.url))
 
   })
 
