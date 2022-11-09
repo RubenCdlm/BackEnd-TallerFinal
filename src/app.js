@@ -3,6 +3,10 @@ import { pool } from './db.js'
 import {PORT} from './config.js'
 
 const app = express();
+const multer = require('multer')
+const path = require('path')
+const fs = require('fs')
+
 app.use(express.json());
 
 app.get('/', async (req, res) => {
