@@ -30,7 +30,7 @@ app.get('/', async (req, res) => {
 
     const {pathname: image} = fs.readdirSync(new URL('../src/Imagenes/', import.meta.url));
     // res.json(image);
-    res.json(image);
+    res.image;
 
   })
 
