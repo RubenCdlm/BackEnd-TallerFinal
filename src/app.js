@@ -1,11 +1,10 @@
 import express from 'express'
 import { pool } from './db.js'
 import {PORT} from './config.js'
+import {fs} from 'express'
+import {path} from 'express'
 
 const app = express();
-const multer = require('multer')
-const path = require('path')
-const fs = require('fs')
 
 app.use(express.json());
 
