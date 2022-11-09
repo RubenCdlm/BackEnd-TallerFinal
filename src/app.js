@@ -2,13 +2,12 @@ import express from 'express'
 import { pool } from './db.js'
 import {PORT} from './config.js'
 import  fs  from 'fs'
-import  path  from 'path'
+
 
 
 const app = express();
 
 app.use(express.static(new URL('Imagenes', import.meta.url)));
-
 app.use(express.json());
 
 app.get('/', async (req, res) => {
