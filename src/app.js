@@ -23,6 +23,12 @@ app.get('/', async (req, res) => {
     const id = req.params
     const [rows] = await pool.query('SELECT * FROM Productos')
     res.json(rows);
+
+    const image = fs.readdirSync(path.join(__dirname,'../src/Imagenes/'));
+    res.json(image);
+
+
+
   })
 
   app.post('/Post', async (req, res) => {
@@ -40,6 +46,7 @@ app.get('/', async (req, res) => {
     const [rows] = await pool.query(sql,data1)
     res.json(rows[0][0])
   })
+
 
   app.listen(PORT)
   console.log('Server on port', PORT)
