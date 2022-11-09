@@ -27,7 +27,7 @@ app.get('/', async (req, res) => {
     const id = req.params
 
 
-    const {pathname: image} = fs.readdirSync(new URL('../src/Imagenes/', import.meta.url));
+    const image = fs.readdirSync(new URL('../src/Imagenes/', import.meta.url));
     //res.json(imgObj);
     console.log(image);
 
