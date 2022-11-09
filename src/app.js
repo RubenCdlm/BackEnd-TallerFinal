@@ -3,7 +3,7 @@ import { pool } from './db.js'
 import {PORT} from './config.js'
 import  fs  from 'fs'
 import  path  from 'path'
-import  dirname  from 'path';
+import  __dirname  from 'path';
 
 const app = express();
 
