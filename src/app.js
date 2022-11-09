@@ -8,9 +8,11 @@ import  fs  from 'fs'
 const app = express();
 
 app.use(express.json());
-app.use(express.static('Imagenes'));
 
-
+app.get('/', async (req, res) => {
+    const [rows] = await pool.query('SELECT "Bienvenidos" as RESULT')
+    res.json(rows)
+  })
   app.get('/cliente', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM Cliente')
     res.json(rows)
@@ -21,7 +23,7 @@ app.use(express.static('Imagenes'));
     const [rows] = await pool.query(sql,id);
       res.json(rows[0][0])
   })
-
+  
   app.get('/Productos', async (req, res) => {
     const id = req.params
     const [rows] = await pool.query('SELECT * FROM Productos')
@@ -29,7 +31,7 @@ app.use(express.static('Imagenes'));
     
   })
 
-  app.get('/Imagen', async (req, res) => {
+  app.post('/Imagen', async (req, res) => {
     const image= fs.readdirSync(new URL('../src/Imagenes/', import.meta.url));
     res.json(image);
   })
