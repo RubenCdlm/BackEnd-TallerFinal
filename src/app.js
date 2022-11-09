@@ -10,10 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static('Imagenes'));
 
-app.get('/', async (req, res) => {
-    const [rows] = await pool.query('SELECT "Bienvenidos" as RESULT')
-    res.json(rows)
-  })
+
   app.get('/cliente', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM Cliente')
     res.json(rows)
