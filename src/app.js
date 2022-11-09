@@ -25,13 +25,16 @@ app.get('/', async (req, res) => {
   })
   app.get('/Productos', async (req, res) => {
     const id = req.params
-    const [rows] = await pool.query('SELECT * FROM Productos')
-    res.json(rows);
+
 
     const {pathname: image} = fs.readdirSync(new URL('../src/Imagenes/', import.meta.url));
-    // res.json(image);
-    res.image;
+    const imgObj = Object.fromEntries(image);
+    //res.json(imgObj);
 
+    const [rows] = await pool.query('SELECT * FROM Productos')
+    res.json(rows,imgObj);
+
+    
   })
 
   app.post('/Post', async (req, res) => {
