@@ -1,8 +1,8 @@
 import express from 'express'
 import { pool } from './db.js'
 import {PORT} from './config.js'
-import fs from 'fs'
-import path from 'path'
+import { fs } from 'fs'
+import { path } from 'path'
 
 const app = express();
 
