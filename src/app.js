@@ -8,7 +8,7 @@ import  fs  from 'fs'
 const app = express();
 
 app.use(express.json());
-app.use(express.static(new URL('../src/Imagenes/', import.meta.url)));
+app.use(express.static(__dirname + '/src/Imagenes'));
 
 
   app.get('/cliente', async (req, res) => {
