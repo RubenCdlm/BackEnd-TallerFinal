@@ -8,7 +8,7 @@ import  fs  from 'fs'
 const app = express();
 
 app.use(express.json());
-app.use(express.static('../src/Imagenes'));
+app.use(express.static('Imagenes'));
 
 app.get('/', async (req, res) => {
     const [rows] = await pool.query('SELECT "Bienvenidos" as RESULT')
