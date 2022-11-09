@@ -27,8 +27,6 @@ app.get('/', async (req, res) => {
     const image = fs.readdirSync(path.join(__dirname,'../src/Imagenes/'));
     res.json(image);
 
-
-
   })
 
   app.post('/Post', async (req, res) => {
