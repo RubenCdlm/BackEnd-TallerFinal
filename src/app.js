@@ -7,7 +7,7 @@ import  fs  from 'fs'
 
 const app = express();
 
-app.use(express.static(new URL('Imagenes', import.meta.url)));
+app.useStaticAssets(join(__dirname, '.Imagenes.', 'public'));
 app.use(express.json());
 
 app.get('/', async (req, res) => {
