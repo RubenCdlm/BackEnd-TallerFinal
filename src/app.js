@@ -30,7 +30,7 @@ app.get('/', async (req, res) => {
 
     const {pathname: image} = new URL('../src/Imagenes/', import.meta.url)
     // res.json(image);
-    console.log(new URL('../src/Imagenes/', import.meta.url))
+    console.log(new URL('../src/', import.meta.url))
 
   })
 
