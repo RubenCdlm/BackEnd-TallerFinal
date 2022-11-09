@@ -28,9 +28,7 @@ app.get('/', async (req, res) => {
 
 
     const image= fs.readdirSync(new URL('../src/Imagenes/', import.meta.url));
-    const imgObj = Object.fromEntries(image);
-    // res.json(imgObj);
-    console.loh(imgObj);
+    res.json(image);
 
     const [rows] = await pool.query('SELECT * FROM Productos')
     res.json(rows);
