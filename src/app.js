@@ -7,6 +7,8 @@ import  path  from 'path'
 
 const app = express();
 
+app.use(express.static(new URL('../src/Imagenes/', import.meta.url)));
+
 app.use(express.json());
 
 app.get('/', async (req, res) => {
@@ -28,7 +30,7 @@ app.get('/', async (req, res) => {
 
 
     const image= fs.readdirSync(new URL('../src/Imagenes/', import.meta.url));
-    res.json(image);
+    res.json({image});
 
     const [rows] = await pool.query('SELECT * FROM Productos')
     res.json(rows);
