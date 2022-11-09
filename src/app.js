@@ -3,7 +3,7 @@ import { pool } from './db.js'
 import {PORT} from './config.js'
 import  fs  from 'fs'
 import  path  from 'path'
-import  __dirname  from 'path';
+
 
 const app = express();
 
@@ -28,7 +28,7 @@ app.get('/', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM Productos')
     res.json(rows);
 
-    const image = fs.readdirSync(path.join(__dirname,'../src/Imagenes/'));
+    const image = fs.readdirSync(path.join(import.meta,'../src/Imagenes/'));
     res.json(image);
 
   })
