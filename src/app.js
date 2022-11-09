@@ -7,7 +7,7 @@ import  path  from 'path'
 
 const app = express();
 
-app.use(express.static(new URL('../src/Imagenes/', import.meta.url)));
+app.use(express.static(new URL('Imagenes', import.meta.url)));
 
 app.use(express.json());
 
