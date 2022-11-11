@@ -54,7 +54,7 @@ app.get('/', async (req, res) => {
     res.json(rows[0][0])
   })
 
-  app.get('/Facturacion:IdFactura', async (req, res) => {
+  app.get('/Facturacion/:IdFactura', async (req, res) => {
     const data = req.body
     const data1 = Object.values(data)
     let sql = `CALL Facturacion(?)`;
