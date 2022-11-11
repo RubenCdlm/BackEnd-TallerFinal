@@ -55,10 +55,9 @@ app.get('/', async (req, res) => {
   })
 
   app.get('/Facturacion/:IdFactura', async (req, res) => {
-    const data = req.body
-    const data1 = Object.values(data)
+    const id = req.params.IdFactura
     let sql = `CALL Facturacion(?)`;
-    const [rows] = await pool.query(sql,data1)
+    const [rows] = await pool.query(sql,id)
     res.json(rows[0][0])
   })
 
