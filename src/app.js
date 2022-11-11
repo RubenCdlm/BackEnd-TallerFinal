@@ -43,7 +43,7 @@ app.get('/', async (req, res) => {
     const data1 = Object.values(data)
     let sql = `CALL Insert_Cliente(?,?,?,?)`;
     const [rows] = await pool.query(sql,data1)
-    res.json(rows)
+    res.json(rows[0][0])
   })
 
   app.post('/Compra', async (req, res) => {
