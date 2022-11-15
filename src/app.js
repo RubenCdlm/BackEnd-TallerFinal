@@ -60,6 +60,12 @@ app.get('/', async (req, res) => {
     const [rows] = await pool.query(sql,id)
     res.json(rows[0][0])
   })
+  app.get('/Facturacion/:Identificacion', async (req, res) => {
+    const id = req.params.IdFactura
+    let sql = `CALL Busqueda_Factura(?)`;
+    const [rows] = await pool.query(sql,id)
+    res.json(rows[0][0])
+  })
 
 
   app.listen(PORT)
