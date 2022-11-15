@@ -64,7 +64,7 @@ app.get('/', async (req, res) => {
     const id = req.params.Identificacion
     let sql = `CALL Busqueda_Factura(?)`;
     const [rows] = await pool.query(sql,id)
-    res.json(rows[0][0])
+    res.json(rows)
   })
 
 
